@@ -8,8 +8,10 @@ class Circularqueue:
         self.front = -1
         self.rear = -1
 
+
     def __repr__(self):
         return 'Queue: {} | Front: {} | Rear: {}'.format(self.elements, self.front, self.rear)
+
 
     def enqueue(self, value: str) -> None:
         
@@ -28,6 +30,7 @@ class Circularqueue:
             self.rear += 1
 
         self.elements[self.rear] = value
+
 
     def dequeue(self) -> str:
 
@@ -53,11 +56,26 @@ class Circularqueue:
 
     def search(self, key: str) -> int:
         
-        for i in range(self.front, self.rear + 1):
-            if self.elements[i] == key:
-                return i
+        if self.front < self.rear:
+            for i in range(self.front, self.rear + 1):
+                if self.elements[i] == key:
+                    return i
+        
+        else:
+            for i in range(0, self.rear + 1):
+                if self.elements[i] == key:
+                    return i
+            
+            for i in range(self.rear, self.front + 1):
+                if self.elements[i] == key:
+                    return i
+            
+            for i in range(self.front, self.max):
+                if self.elements[i] == key:
+                    return i        
         
         return -1
+
 
     def peek(self) -> str:
         
