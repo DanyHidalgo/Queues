@@ -36,7 +36,7 @@ class LinearQueue:
         self.front +=1
         return value
 
-
+    #1
     def search(self, key: str) -> int:
         
         for i in range(self.front, self.rear + 1):
@@ -45,6 +45,7 @@ class LinearQueue:
         
         return -1
 
+    #2
     def peek(self) -> str:
         
         if self.front == -1 or self.front > self.rear:
